@@ -1,0 +1,4 @@
+---
+deployment: 
+	tasks:
+		- export DEPLOYPATH=/home/wp5playgroundfli/publich_html/wp_content/themes/flitch_blocks/

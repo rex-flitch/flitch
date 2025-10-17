@@ -1,0 +1,177 @@
+/* =================== Cover Images =================== */
+.wp-block-cover-image {					/* make them tall */
+	min-height: 50vw;
+	height: 100%;
+    .has-parallax {	/* this makes a nice looking parallax window */
+    	min-height: 25vw;
+	    margin-bottom: 0;
+    }
+}
+
+/*
+ * iOS has problems with parallax cover images (unlike Android devices) - they display some
+ * random portion of the image that seems to be a dark background with no detail. Yuck!
+ * Weaver Xtreme detects iOS devices and defines .is-ios for those devices. This rule
+ * changes cover images to scroll instead of fixed which has much nicer display.
+ */
+.is-ios{
+    .wp-block-cover-image {
+        .has-parallax {
+            background-attachment: scroll;
+        }
+    }   
+}
+
+/* =================== Embed =================== */
+.wp-block-embed,
+*[class^="wp-block-embed-"] {
+	clear: both;
+}
+/*
+To get a 1:1 aspect ratio, we have a 100% top padding
+To get a 2:1 aspect ratio, we have a 50% top padding
+To get a 1:2 aspect ratio, we have a 200% top padding
+To get a 4:3 aspect ratio, we have a 75% top padding
+To get a 16:9 aspect ratio, we have a 56.25% top padding
+*/
+
+
+/* =================== Video =================== */
+.wp-block-embed,
+.wp-block-video {
+    &.wp-embed-aspect-1-1 {
+        .wp-block-embed__wrapper {
+            padding-bottom: 100%;
+        }
+    }
+    &.wp-embed-aspect-2-1 {
+        .wp-block-embed__wrapper {
+            padding-bottom: 50%
+        }
+    }
+    &.wp-embed-aspect-1-2 {
+        .wp-block-embed__wrapper {
+            padding-bottom: 200%;
+        }
+    }
+    &.wp-embed-aspect-4-3 {
+        .wp-block-embed__wrapper {
+            padding-bottom: 75%;
+        }
+    }
+    &.wp-embed-aspect-16-9 {
+        .wp-block-embed__wrapper {
+            padding-bottom: 56.25%;
+        }
+    }
+    &.wp-has-aspect-ratio {
+        position: relative;
+    
+        .wp-block-embed__wrapper {
+            video,
+            iframe {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            	max-width: 100%;
+            }
+        }
+    }
+    video,
+    iframe {
+    	max-width: 100%;
+    }
+}
+
+/* =================== Alignment =================== */
+.alignfull,
+.alignwide,
+.aligncenter {
+	clear: both;
+}
+
+.wp-block-cover-image {
+	background-position: center center;
+}
+
+/* =================== Full and Wide =================== */
+.alignfull,
+.alignwide {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw; 
+    margin-right: -50vw;
+    & > * {
+        width: 100%;
+    }
+    & > *:only-child:not(.wp-block-embed__wrapper) {
+        padding-left: 15px; /* account for bootstrap container */
+        padding-right: 15px; /* account for bootstrap container */
+    }
+}
+.has-sidebar {
+    .alignwide,
+    .alignfull {
+        width: 100%;
+        max-width: initial;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        & > *:only-child:not(.wp-block-embed__wrapper),
+        img {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .alignwide {
+        width: calc(~"100vw * .95");/* account for bootstrap container, set content to 80vw */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -47.5vw; 
+        margin-right: -47.5vw;
+        & > * {
+            width: 100%;
+        }
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+    .alignfull {
+        width: calc(~"100vw - 8px"); /* account for bootstrap container */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw; 
+        margin-right: -50vw;
+        & > * {
+            width: 100%;
+        }
+    }
+    .alignwide {
+        width: calc(~"100vw * .8");
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -40vw; 
+        margin-right: -40vw;
+        & > * {
+            width: 100%;
+        }
+    }
+    .has-sidebar {
+        .alignwide {
+            width: calc(~"100vw - (1140px * .25) - ((100vw - 1095px) * .75)");
+        }
+        .alignfull {
+            width: calc(~"100vw - (1140px * .25) - ((100vw - 1095px) * .5)");
+        }
+    }
+}
