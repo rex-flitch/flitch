@@ -25,7 +25,7 @@
     <![endif]-->
 	<?php wp_head();?>
 </head>
-
+<!-- This is just a note for git -->
 <body <?php body_class(); ?> >
     <header id="site-header" class="page-header reg-header">
         <div class="hamburger-menu">
