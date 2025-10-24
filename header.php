@@ -39,13 +39,13 @@
                     <?php custom_mobile_menu(); ?>
                 </ul>
                 <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'mobile-secondary',
-                    'container' => 'nav',
-                    'container_class' => 'mobile-secondary-menu',
-                    'menu_class' => 'mobile-secondary-menu-items',
-                    'fallback_cb' => false, // optional: prevents default page menu if not set
-                ));
+                // wp_nav_menu(array(
+                //     'theme_location' => 'mobile-secondary',
+                //     'container' => 'nav',
+                //     'container_class' => 'mobile-secondary-menu',
+                //     'menu_class' => 'mobile-secondary-menu-items',
+                //     'fallback_cb' => false, // optional: prevents default page menu if not set
+                // ));
                 ?>
 
             </nav>
