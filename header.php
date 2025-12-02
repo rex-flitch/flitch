@@ -96,7 +96,7 @@
                     <div class="contact-button">
                     <?php
                         $contact = get_field('contact_number', 'options');
-                        echo "<a href='tel:" . $contact . "' class='btn-green'>" . $contact . "</a>";
+                        echo "<a href='tel:" . $contact . "' class='btn-green'>" . $contact . "Test</a>";
                     ?>
                     </div>
                     <div class="contact-icon">
