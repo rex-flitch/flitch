@@ -93,10 +93,10 @@
                     </nav>
                 </div>
                 <div class="col-2 contact-area">
-                    <div class="contact-button">
+                    <div class="contact-button test">
                     <?php
                         $contact = get_field('contact_number', 'options');
-                        echo "<a href='tel:" . $contact . "' class='btn-green'>" . $contact . "</a>";
+                        echo "<a href='tel:" . $contact . "' class='btn-green'>" . $contact . " test</a>";
                     ?>
                     </div>
                     <div class="contact-icon">
